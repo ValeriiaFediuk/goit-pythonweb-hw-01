@@ -13,10 +13,12 @@ ch.setFormatter(formatter)
 
 logger.addHandler(ch)
 
+
 class Vehicle(ABC):
     @abstractmethod
     def start_engine(self):
         pass
+
 
 class Car(Vehicle):
     def __init__(self, make, model, area):
@@ -27,6 +29,7 @@ class Car(Vehicle):
     def start_engine(self):
         logger.info(f"{self.make} {self.model}: Двигун запущено")
 
+
 class Motorcycle(Vehicle):
     def __init__(self, make, model, area):
         self.make = make
@@ -36,6 +39,7 @@ class Motorcycle(Vehicle):
     def start_engine(self):
         logger.info(f"{self.make} {self.model}: Мотор заведено")
 
+
 class VehicleFactory(ABC):
     @abstractmethod
     def create_car(self, make, model):
@@ -44,6 +48,7 @@ class VehicleFactory(ABC):
     @abstractmethod
     def create_motorcycle(self, make, model):
         pass
+
 
 class USVehicleFactory(VehicleFactory):
     def __init__(self):
